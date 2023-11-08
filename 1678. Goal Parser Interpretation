@@ -1,0 +1,19 @@
+https://leetcode.com/problems/goal-parser-interpretation/
+class Solution {
+    public String interpret(String s) {
+        String ans="";
+        for(int i=0;i<s.length();i++){
+            if(s.charAt(i)=='('&&s.charAt(i+1)==')'){
+                ans+="o";
+            }
+            if(s.charAt(i)=='('&&s.charAt(i+1)=='a'){
+                ans+="al";
+            }
+            if(s.charAt(i)=='G'){
+                ans+=s.charAt(i);
+            }
+        }
+        return ans;
+        
+    }
+}
