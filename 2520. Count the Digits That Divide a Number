@@ -1,0 +1,15 @@
+https://leetcode.com/problems/count-the-digits-that-divide-a-number/
+class Solution {
+    public int countDigits(int num) {
+        int c=0;
+        int n=num;
+        while(num!=0){
+            int rem=num%10;
+            if(n%rem==0){
+                c++;
+            }
+            num/=10;
+        }
+        return c;
+    }
+}
