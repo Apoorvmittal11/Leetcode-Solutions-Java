@@ -1,0 +1,15 @@
+https://leetcode.com/problems/root-equals-sum-of-children/description/
+class Solution {
+    public boolean checkTree(TreeNode root) {
+        if(root.val==add(root)-root.val){
+            return true;
+        }
+        return false;
+    }
+    public int add(TreeNode root) {
+        if(root==null){
+            return 0;
+        }
+        return root.val+add(root.left)+add(root.right);
+    }
+}
