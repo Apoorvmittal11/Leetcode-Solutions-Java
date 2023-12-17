@@ -1,0 +1,15 @@
+https://leetcode.com/problems/binary-tree-preorder-traversal/description/
+class Solution {
+    public List<Integer> preorderTraversal(TreeNode root) {
+        List<Integer> result = new LinkedList<>();
+        inorder(result, root);
+        return result;
+    }
+    private void inorder(List<Integer> arr, TreeNode node) {
+        if (node == null) return;
+        arr.add(node.val);
+        inorder(arr, node.left);
+        inorder(arr, node.right);
+
+    }
+}
