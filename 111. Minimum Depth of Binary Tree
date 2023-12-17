@@ -1,0 +1,20 @@
+https://leetcode.com/problems/minimum-depth-of-binary-tree/description/
+ import java.util.*;
+class Solution {
+    public int minDepth(TreeNode root) {
+        if(root==null){
+			return 0;
+		}
+		int countl=1,countr=1;
+		countl+=minDepth(root.left);
+		countr+=minDepth(root.right);
+
+        if(countl==1){
+            return countr;
+        }
+        if(countr==1){
+            return countl;
+        }
+		return Math.min(countl, countr); 
+    }
+}
