@@ -1,0 +1,19 @@
+https://leetcode.com/problems/middle-of-the-linked-list/description/
+class Solution {
+    public ListNode middleNode(ListNode head) {
+        ListNode tem=head;
+        ListNode temp=head;
+        //ListNode tem=head;
+        int c=0;
+        while(temp!=null){
+            temp=temp.next;
+            c++;
+        }
+        int i=0;
+        while(i<c/2){
+            tem=tem.next;
+            i++;
+        }
+        return tem;
+    }
+}
