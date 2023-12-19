@@ -1,0 +1,41 @@
+https://leetcode.com/problems/insertion-sort-list/description/
+class Solution {
+    public ListNode insertionSortList(ListNode head) {
+        if(head==null){
+            return head;
+        }
+        if(head.next==null){
+            return head;
+        }
+        ListNode head1=head;
+        int c=0;
+        while(head1!=null){
+            c++;
+            head1=head1.next;
+        }
+        int arr[]=new int[c];
+        ListNode temp=head;
+        for(int i=0;i<c;i++){
+            arr[i]=temp.val;
+            temp=temp.next;
+        }
+        for(int i=1;i<c;i++){
+            int j=i-1;
+            int tem=arr[i];
+            while(j>=0 && arr[j]>tem){
+                arr[j+1]=arr[j];
+                j--;
+            }
+            arr[j+1]=tem;
+        }
+        ListNode newhead=new ListNode(arr[0]);
+        ListNode temp1=newhead;
+		 for(int b=1;b<c;b++){
+            ListNode newnode=new ListNode(arr[b]);
+            temp1.next=newnode;
+            temp1=newnode;
+        }
+        temp1.next=null;
+        return newhead;
+    }
+}
