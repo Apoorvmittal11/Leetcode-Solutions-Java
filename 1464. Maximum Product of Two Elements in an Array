@@ -1,0 +1,7 @@
+https://leetcode.com/problems/maximum-product-of-two-elements-in-an-array/description/
+class Solution {
+    public int maxProduct(int[] num) {
+        Arrays .sort(num);
+        return (num[num.length-1]-1)*(num[num.length-2]-1);
+    }
+}
