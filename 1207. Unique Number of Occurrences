@@ -1,0 +1,16 @@
+https://leetcode.com/problems/unique-number-of-occurrences/description/
+class Solution {
+    public boolean uniqueOccurrences(int[] arr) {
+    int[] c=new int[2001];
+    for(int i=0;i<arr.length;i++){
+        c[1000+arr[i]]++;
+    }
+    Arrays.sort(c);
+    for(int i=0;i<c.length-1;i++){
+        if(c[i]==c[i+1]&&c[i]!=0){
+            return false;   
+        }
+    }
+    return true;
+    }
+}
