@@ -1,0 +1,11 @@
+https://leetcode.com/problems/count-integers-with-even-digit-sum/description/
+class Solution {
+    public int countEven(int num) {
+        int sum = 0, tmp = num;
+        while(num!=0) {
+            sum += num % 10;
+            num /= 10;
+        }
+        return (tmp - sum % 2) / 2;
+    }
+}
