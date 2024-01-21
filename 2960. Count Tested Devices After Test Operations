@@ -1,0 +1,13 @@
+https://leetcode.com/problems/count-tested-devices-after-test-operations/description/
+class Solution {
+    public int countTestedDevices(int[] b) {
+        int ans = 0;
+        for (int x : b) {
+            x -= ans;
+            if (x > 0) {
+                ++ans;
+            }
+        }
+        return ans;
+    }
+}
