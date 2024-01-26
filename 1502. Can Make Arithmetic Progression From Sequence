@@ -1,0 +1,14 @@
+https://leetcode.com/problems/can-make-arithmetic-progression-from-sequence/description/
+class Solution {
+    public boolean canMakeArithmeticProgression(int[] nums) {
+        Arrays.sort(nums);
+        int n=nums.length;
+        int d=nums[1]-nums[0];
+        for(int i=1;i<n-1;i++){
+            if(nums[i+1]-nums[i]!=d){
+                return false;
+            }
+        }
+        return true;
+    }
+}
