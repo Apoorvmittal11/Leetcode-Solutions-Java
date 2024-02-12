@@ -1,0 +1,20 @@
+https://leetcode.com/problems/find-a-corresponding-node-of-a-binary-tree-in-a-clone-of-that-tree/description/
+class Solution {
+    private TreeNode target;
+    
+    public final TreeNode getTargetCopy(final TreeNode original, final TreeNode cloned, final TreeNode target) {
+        this.target = target;
+        return dfs(original, cloned);
+    }
+
+    private TreeNode dfs(TreeNode root1, TreeNode root2) {
+        if (root1 == null) {
+            return null;
+        }
+        if (root1 == target) {
+            return root2;
+        }
+        TreeNode res = dfs(root1.left, root2.left);
+        return res == null ? dfs(root1.right, root2.right) : res;
+    }
+}
