@@ -1,0 +1,16 @@
+https://leetcode.com/problems/ant-on-the-boundary/description/
+class Solution {
+    public int returnToBoundaryCount(int[] nums) {
+        int ans=0;
+        for(int i=0;i<nums.length;i++){
+            int sum=0;
+            for(int j=0;j<=i;j++){
+                sum+=nums[j];
+            }
+            if(sum==0){
+                ans++;
+            }
+        }
+        return ans;
+    }
+}
