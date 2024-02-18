@@ -1,0 +1,12 @@
+https://leetcode.com/problems/number-of-senior-citizens/description/
+class Solution {
+    public int countSeniors(String[] details) {
+        int ans=0;
+        for(int i=0;i<details.length;i++){
+            if((details[i].charAt(11)=='6'&&details[i].charAt(12)!='0')||details[i].charAt(11)=='7'||details[i].charAt(11)=='8'||details[i].charAt(11)=='9'){
+                ans++;
+            }
+        }
+        return ans;
+    }
+}
