@@ -1,0 +1,15 @@
+https://leetcode.com/problems/divide-array-into-equal-pairs/description/
+class Solution {
+    public boolean divideArray(int[] nums) {
+        int[] count=new int[510];
+        for (int v : nums) {
+            ++count[v];
+        }
+        for (int v : count) {
+            if (v%2!=0) {
+                return false;
+            }
+        }
+        return true;
+    }
+}
