@@ -1,0 +1,15 @@
+https://leetcode.com/problems/maximum-number-of-pairs-in-array/description/
+class Solution {
+    public int[] numberOfPairs(int[] nums) {
+         Map<Integer, Integer> countMap = new HashMap<>();
+        for (int num : nums) {
+            countMap.put(num, countMap.getOrDefault(num, 0) + 1);
+        }       
+        int pairCount = 0;
+        for (int count : countMap.values()) {
+            pairCount += count / 2;
+        }
+        int leftoverCount = nums.length - pairCount * 2;
+        return new int[]{pairCount, leftoverCount};
+    }
+}
