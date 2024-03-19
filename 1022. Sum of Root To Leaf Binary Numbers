@@ -1,0 +1,18 @@
+https://leetcode.com/problems/sum-of-root-to-leaf-binary-numbers/description/
+class Solution {
+    public int sumRootToLeaf(TreeNode root) {
+         return sum(root, 0);
+    }
+    public int sum(TreeNode root, int sum) {
+        if (root == null) {
+            return 0;
+        }
+        sum = (sum << 1) + root.val; 
+        if (root.left == null && root.right == null) {
+            return sum;
+        }
+        int leftSum = sum(root.left, sum);
+        int rightSum = sum(root.right, sum);
+        return leftSum + rightSum;
+    }   
+}
