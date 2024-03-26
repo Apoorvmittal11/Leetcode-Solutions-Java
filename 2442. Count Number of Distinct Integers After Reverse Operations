@@ -1,0 +1,29 @@
+https://leetcode.com/problems/count-number-of-distinct-integers-after-reverse-operations/description/
+class Solution {
+    private int rev(int num) {
+        int reversed = 0;
+        while (num > 0) {
+            int digit = num % 10;
+            reversed = reversed * 10 + digit;
+            num /= 10;
+        }
+        return reversed;
+    }
+    public int countDistinctIntegers(int[] nums) {
+        int res[] = new int[2 * nums.length];
+        for(int i = 0; i < nums.length; i++){
+            res[i] = nums[i];
+        }
+        for(int i = nums.length; i < res.length; i++){
+            res[i] = rev(nums[i - nums.length]);
+        }
+        int count = 0;
+        Arrays.sort(res);
+        for(int i = 0; i < res.length-1; i++){
+            if( res[i] != res[i+1]){
+                count += 1;
+            }
+        }
+        return count + 1;
+    }
+}
