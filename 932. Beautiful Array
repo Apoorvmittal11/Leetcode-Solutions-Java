@@ -1,0 +1,20 @@
+https://leetcode.com/problems/beautiful-array/description/
+class Solution {
+    public int[] beautifulArray(int n) {
+    int[] result = new int[n];
+    if (n == 1) {
+        result[0] = 1;
+        return result;
+    }
+    int[] odds = beautifulArray((n + 1) / 2);
+    int[] evens = beautifulArray(n / 2);
+    int idx = 0;
+    for (int i : odds) {
+        result[idx++] = 2 * i - 1;
+    }
+    for (int i : evens) {
+        result[idx++] = 2 * i;
+    }
+    return result;
+    }
+}
