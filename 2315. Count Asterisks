@@ -1,0 +1,21 @@
+https://leetcode.com/problems/count-asterisks/description/
+class Solution {
+    public int countAsterisks(String s) {
+        int c = 0;
+        int n = s.length();
+        int i = 0;
+        while (i < n) {
+            if (s.charAt(i) == '|') {
+                i++;
+                while (s.charAt(i) != '|') {
+                    i++;
+                }
+            }
+            if (s.charAt(i) == '*') {
+                c++;
+            }
+            i++;
+        }
+        return c;
+    }
+}
