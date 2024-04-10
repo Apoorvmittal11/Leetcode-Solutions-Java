@@ -1,0 +1,16 @@
+https://leetcode.com/problems/total-distance-traveled/description/
+class Solution {
+    public int distanceTraveled(int mainTank, int additionalTank) {
+        int ans = 0, c = 0;
+        while (mainTank > 0) {
+            c++;
+            ans += 10;
+            mainTank--;
+            if (c % 5 == 0 && additionalTank > 0) {
+                additionalTank--;
+                mainTank++;
+            }
+        }
+        return ans;
+    }
+}
