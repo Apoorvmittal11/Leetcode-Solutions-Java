@@ -1,0 +1,21 @@
+https://leetcode.com/problems/increasing-order-search-tree/description/
+class Solution {
+    TreeNode prev;
+    public TreeNode increasingBST(TreeNode root) {
+       TreeNode d = new TreeNode(0, null, root);
+        prev = d;
+        dfs(root);
+        return d.right;
+    }
+
+    private void dfs(TreeNode root) {
+        if (root == null) {
+            return;
+        }
+        dfs(root.left);
+        prev.right = root;
+        root.left = null;
+        prev = root;
+        dfs(root.right); 
+    }
+}
