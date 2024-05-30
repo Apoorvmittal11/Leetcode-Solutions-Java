@@ -1,0 +1,30 @@
+https://leetcode.com/problems/maximum-value-of-a-string-in-an-array/description/
+class Solution {
+    public int maximumValue(String[] strs) {
+        int maxValue = 0;
+        for (String str : strs) {
+            int value = getValue(str);
+            if (value > maxValue) {
+                maxValue = value;
+            }
+        }
+
+        return maxValue;
+    }
+    private int getValue(String str) {
+        if (isNumeric(str)) {
+            return Integer.parseInt(str);
+        } else {
+            return str.length();
+        }
+    }
+
+    private boolean isNumeric(String str) {
+        for (int i = 0; i < str.length(); i++) {
+            if (!Character.isDigit(str.charAt(i))) {
+                return false;
+            }
+        }
+        return true;
+    }
+}
