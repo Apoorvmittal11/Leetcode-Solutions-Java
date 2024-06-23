@@ -1,0 +1,16 @@
+https://leetcode.com/problems/account-balance-after-rounded-purchase/2806. Account Balance After Rounded Purchase
+class Solution {
+    public int accountBalanceAfterPurchase(int num) {
+        if (num % 10 >= 5) {
+            while (num % 10 != 0) {
+                num++;
+            }
+        } else {
+            while (num % 10 != 0) {
+                num--;
+            }
+
+        }
+        return 100 - num;
+    }
+}
