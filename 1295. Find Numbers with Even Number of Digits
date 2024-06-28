@@ -1,0 +1,22 @@
+https://leetcode.com/problems/find-numbers-with-even-number-of-digits/description/
+class Solution {
+    public int check(int n) {
+        int a = 0;
+        while (n != 0) {
+            a += 1;
+            n /= 10;
+        }
+        return a;
+    }
+
+    public int findNumbers(int[] nums) {
+        int ans = 0;
+        for (int i = 0; i < nums.length; i++) {
+            int c = check(nums[i]);
+            if (c % 2 == 0) {
+                ans += 1;
+            }
+        }
+        return ans;
+    }
+}
