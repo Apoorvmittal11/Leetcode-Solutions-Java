@@ -1,0 +1,25 @@
+https://leetcode.com/problems/distinct-prime-factors-of-product-of-array/description/
+class Solution {
+    private void findPrimeFactors(int num, Set<Integer> primeFactors) {
+        while (num % 2 == 0) {
+            primeFactors.add(2);
+            num /= 2;
+        }
+        for (int i = 3; i <= Math.sqrt(num); i += 2) {
+            while (num % i == 0) {
+                primeFactors.add(i);
+                num /= i;
+            }
+        }
+        if (num > 2) {
+            primeFactors.add(num);
+        }
+    }    
+    public int distinctPrimeFactors(int[] nums) {
+        Set<Integer> primeFactors = new HashSet<>();
+        for (int num : nums) {
+            findPrimeFactors(num, primeFactors);
+        }
+        return primeFactors.size();
+    }
+}
