@@ -1,0 +1,24 @@
+class Solution {
+    public int bin(int n) {
+        int decimal = 0;
+        int b = 1;
+        while (n > 0) {
+            int rem = n % 10;
+            n = n / 10;
+            decimal += rem * b;
+            b *= 2;
+        }
+
+        return decimal;
+    }
+
+    public String addBinary(String a, String b) {
+        int ans1 = Integer.valueOf(a);
+        int ans2 = Integer.decode(b);
+        int c = bin(ans1);
+        int d = bin(ans2);
+        int e = c + d;
+        String binaryString = Integer.toBinaryString(e);
+        return binaryString;
+    }
+}
