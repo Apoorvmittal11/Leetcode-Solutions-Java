@@ -1,0 +1,35 @@
+public class Solution {
+    // public int reverseBinaryNumber(int n) {
+    // String binaryString = Integer.toBinaryString(n);
+    // String reversedBinaryString = new
+    // StringBuilder(binaryString).reverse().toString();
+    // longint reversedDecimal = Integer.parseInt(reversedBinaryString, 2);
+    // return reversedDecimal;
+    // }
+    // you need treat n as an unsigned value
+    public int reverseBits(int n) {
+        // int n=reverseBinaryNumber(num);
+        // int decimal = 0;
+        // int base = 1;
+        // while (n > 0) {
+        // int lastDigit = n % 10;
+        // n = n / 10;
+        // decimal += lastDigit * base;
+        // base = base * 2;
+        // }
+
+        // return decimal;
+        if (n == 0)
+            return 0;
+
+        int result = 0;
+        for (int i = 0; i < 32; i++) {
+            result <<= 1;
+            if ((n & 1) == 1)
+                result++;
+            n >>= 1;
+        }
+        return result;
+
+    }
+}
