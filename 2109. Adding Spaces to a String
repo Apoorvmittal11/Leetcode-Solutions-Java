@@ -1,0 +1,20 @@
+class Solution {
+    public String addSpaces(String s, int[] spaces) {
+        int i = 0;
+        int j = 0;
+        int n = s.length();
+        int m = spaces.length;
+        String res = "";
+        while (i < n) {
+            if (j < m && i == spaces[j]) {
+                res += " ";
+                j++;
+            }
+
+            res += s.charAt(i);
+            i++;
+        }
+
+        return res;
+    }
+}
