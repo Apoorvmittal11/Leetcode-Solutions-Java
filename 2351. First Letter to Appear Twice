@@ -1,0 +1,13 @@
+class Solution {
+    public char repeatedCharacter(String s) {
+        ArrayList<Character> li = new ArrayList<>();
+
+        for (int i = 0; i < s.length(); i++) {
+            if (!li.contains(s.charAt(i)))
+                li.add(s.charAt(i));
+            else
+                return s.charAt(i);
+        }
+        return '\0';
+    }
+}
