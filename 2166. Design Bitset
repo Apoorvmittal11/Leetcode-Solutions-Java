@@ -1,0 +1,80 @@
+class Bitset {
+    int[] arr;
+    int count;
+    boolean flip;
+
+    public Bitset(int size) {
+        arr = new int[size];
+        count = 0;
+        flip = false;
+    }
+
+    public void fix(int idx) {
+        if (!flip) {
+            if (arr[idx] == 0) {
+                arr[idx] = 1;
+                count++;
+            }
+        } else {
+            if (arr[idx] == 1) {
+                arr[idx] = 0;
+                count++;
+            }
+        }
+    }
+
+    public void unfix(int idx) {
+        if (flip) {
+            if (arr[idx] == 0) {
+                arr[idx] = 1;
+                count--;
+            }
+        } else {
+            if (arr[idx] == 1) {
+                arr[idx] = 0;
+                count--;
+            }
+        }
+    }
+
+    public void flip() {
+        flip = !flip;
+        count = arr.length - count;
+    }
+
+    public boolean all() {
+        return count == arr.length;
+    }
+
+    public boolean one() {
+        return count > 0;
+    }
+
+    public int count() {
+        return count;
+    }
+
+    public String toString() {
+        StringBuilder sb = new StringBuilder(arr.length);
+        for (int i = 0; i < arr.length; i++) {
+            if (flip) {
+                sb.append(arr[i] == 1 ? '0' : '1');
+            } else {
+                sb.append(arr[i] == 1 ? '1' : '0');
+            }
+        }
+        return sb.toString();
+    }
+}
+
+/**
+ * Your Bitset object will be instantiated and called as such:
+ * Bitset obj = new Bitset(size);
+ * obj.fix(idx);
+ * obj.unfix(idx);
+ * obj.flip();
+ * boolean param_4 = obj.all();
+ * boolean param_5 = obj.one();
+ * int param_6 = obj.count();
+ * String param_7 = obj.toString();
+ */
