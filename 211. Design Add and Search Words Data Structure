@@ -1,0 +1,39 @@
+class WordDictionary {
+    ArrayList<String> l;
+
+    public WordDictionary() {
+        l = new ArrayList<>();
+    }
+
+    public void addWord(String word) {
+        l.add(word);
+    }
+
+    public boolean search(String word) {
+        for (String w : l) {
+            if (match(w, word)) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    private boolean match(String w, String word) {
+        if (w.length() != word.length()) {
+            return false;
+        }
+        for (int i = 0; i < w.length(); i++) {
+            if (word.charAt(i) != '.' && word.charAt(i) != w.charAt(i)) {
+                return false;
+            }
+        }
+        return true;
+    }
+}
+
+/**
+ * Your WordDictionary object will be instantiated and called as such:
+ * WordDictionary obj = new WordDictionary();
+ * obj.addWord(word);
+ * boolean param_2 = obj.search(word);
+ */
