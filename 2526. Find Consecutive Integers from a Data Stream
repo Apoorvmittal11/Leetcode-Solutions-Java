@@ -1,0 +1,26 @@
+class DataStream {
+    int value;
+    int k;
+    int current;
+
+    public DataStream(int value, int k) {
+        this.value = value;
+        this.k = k;
+        this.current = 0;
+    }
+
+    public boolean consec(int num) {
+        if (num != value) {
+            current = 0;
+        } else {
+            current++;
+        }
+        return current >= k;
+    }
+}
+
+/**
+ * Your DataStream object will be instantiated and called as such:
+ * DataStream obj = new DataStream(value, k);
+ * boolean param_1 = obj.consec(num);
+ */
