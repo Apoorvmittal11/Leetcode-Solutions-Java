@@ -1,0 +1,17 @@
+class Solution {
+    public int minAbsoluteDifference(List<Integer> n, int x) {
+        int value = Integer.MAX_VALUE;
+        int nums[] = new int[n.size()];
+        for (int i = 0; i < nums.length; i++) {
+            nums[i] = n.get(i);
+        }
+        for (int i = 0; i < nums.length; ++i) {
+            for (int j = i + x; j < nums.length; ++j) {
+                if (Math.abs(nums[j] - nums[i]) < value) {
+                    value = Math.abs(nums[j] - nums[i]);
+                }
+            }
+        }
+        return value;
+    }
+}
