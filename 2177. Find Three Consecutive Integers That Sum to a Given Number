@@ -1,0 +1,9 @@
+class Solution {
+    public long[] sumOfThree(long num) {
+        if (num % 3 != 0) {
+            return new long[] {};
+        }
+        long rem = num / 3;
+        return new long[] { rem - 1, rem, rem + 1 };
+    }
+}
