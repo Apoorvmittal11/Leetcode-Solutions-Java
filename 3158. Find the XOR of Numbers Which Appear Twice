@@ -1,0 +1,13 @@
+class Solution {
+    public int duplicateNumbersXOR(int[] nums) {
+        int[] freq = new int[50];
+        int res = 0;
+        for (int num : nums) {
+            freq[num - 1]++;
+            if (freq[num - 1] % 2 == 0) {
+                res ^= num;
+            }
+        }
+        return res;
+    }
+}
