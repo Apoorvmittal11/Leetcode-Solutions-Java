@@ -1,0 +1,29 @@
+class Solution {
+    
+    Random rand;
+    ArrayList<Integer> ans;
+    public Solution(int n, int[] blacklist) {
+        rand = new Random();
+        ans = new ArrayList<>();
+        HashSet<Integer> blacklistSet = new HashSet<>();
+        for (int blacklisted : blacklist) {
+            blacklistSet.add(blacklisted);
+        }
+        for (int i = 0; i < n; i++) {
+            if (!blacklistSet.contains(i)) {
+                ans.add(i);
+            }
+        }
+    }
+
+    public int pick() {
+        int r = rand.nextInt(ans.size());
+        return ans.get(r);
+    }
+}
+
+/**
+ * Your Solution object will be instantiated and called as such:
+ * Solution obj = new Solution(n, blacklist);
+ * int param_1 = obj.pick();
+ */
