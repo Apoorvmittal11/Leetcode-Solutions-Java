@@ -1,0 +1,35 @@
+class Solution {
+    private ListNode numberToList(long num) {
+        if (num == 0) {
+            return new ListNode(0);
+        }
+        ListNode head = null;
+        ListNode current = null;
+        while (num > 0) {
+            int digit = (int) (num % 10);
+            ListNode newNode = new ListNode(digit);
+            if (head == null) {
+                head = newNode;
+                current = newNode;
+            } else {
+                newNode.next = head;
+                head = newNode;
+            }
+            num /= 10;
+        }
+        return head;
+    }
+    public ListNode doubleIt(ListNode head) {
+        long num = 0;
+        ListNode current = head;
+        while (current != null) {
+            num = num * 10 + current.val;
+            current = current.next;
+        }
+        num *= 2;
+        if (num == 0) {
+            return new ListNode(0);
+        }
+        return numberToList(num);
+    }
+}
